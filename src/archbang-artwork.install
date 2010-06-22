@@ -1,0 +1,15 @@
+#arg 1:  2010.06-2
+#arg 2:  2010.06-1
+
+pre_upgrade () {
+echo "Preparing . . ."
+#	rm -f $pkgdir/boot/archbang.tga
+}	
+	
+post_install () {
+	echo "All done. Please reboot for changes to take effect!"
+}
+
+post_upgrade() {
+echo "All done. Please reboot for changes to take effect!"
+}

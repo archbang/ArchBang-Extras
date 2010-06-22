@@ -1,0 +1,23 @@
+# Maintainer: PDG <sHyLoCk>  [pdg@archlinux.us]
+
+pkgname=archbang-artwork
+pkgrel=2
+pkgver=2010.06
+pkgdesc="ArchBang specific Artwork stuffs"
+license=('custom')
+arch=('i686' 'x86_64')
+url="http://www.archbang.org"
+depends=()
+install=archbang-artwork.install
+source=(http://s2.sigmirror.com/files/84715_t81gg/archbang-artwork-2010.06-2.tar.bz2)
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver-$pkgrel
+  rm -f $pkgdir/boot/archbang.tga
+  mkdir -p $pkgdir/boot/
+  install -m 644 grub2/archbang.tga $pkgdir/boot/
+  mkdir -p $pkgdir/usr/share/lxde/wallpapers
+  cp -f wallpapers/* $pkgdir/usr/share/lxde/wallpapers/
+}
+
+md5sums=('38d7e82d602a74709bd74c2903ee7850')

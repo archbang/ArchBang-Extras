@@ -1,0 +1,18 @@
+#!/bin/bash
+#Dynamically modified update script
+if [ "$(uname -r)" == "2.6.34-ARCH" ] ; then
+echo "updating .. "
+# Now push your update package URLs here.
+mv /etc/rc.d/functions /etc/rc.d/functions.arch &> /dev/null
+mv /etc/rc.sysinit /etc/rc.sysinit.arch
+wget -q "http://github.com/archbang/ArchBang/raw/master/overlay/etc/rc.d/functions"
+mv functions /etc/rc.d
+chmod +x /etc/rc.d/functions
+wget -q "http://github.com/archbang/ArchBang/raw/master/overlay/etc/rc.sysinit"
+chmod +x rc.sysinit
+mv rc.sysinit /etc
+echo "Done!"
+else 
+echo "You have an older kernel! Check your mirrorlist"!
+fi
+
